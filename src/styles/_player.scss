@@ -1,0 +1,28 @@
+.time-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    input{
+        width: 70%;
+        margin: 1rem;
+    }
+    
+}
+.player{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 28vh;
+}
+.controllers{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    margin-top: -2rem;
+    svg{
+        cursor: pointer;
+    }
+}
