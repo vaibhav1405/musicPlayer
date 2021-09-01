@@ -5,7 +5,7 @@
     width: 70%;
     input{
         width: 70%;
-        margin: 1rem;
+        box-sizing: border-box;
     }
     
 }
@@ -24,5 +24,40 @@
     margin-top: -2rem;
     svg{
         cursor: pointer;
+    }}
+input{
+    -webkit-appearance: none;
+}
+input:focus{
+    outline: none;
+}
+input::-webkit-scrollbar-thumb{
+    -webkit-appearance: none;
+}
+.input-track input{
+    width:99%;
+    border-radius: 2rem;
+    margin-left: 0.2rem;
+    background: linear-gradient(90deg,rgb(226, 108, 108),rgb(246, 170, 170));
+    position: relative;
+    
+}
+.input-track{
+    border-radius: 2rem;
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+
+}
+@media screen and (max-width:788px) {
+    .time-control{
+        width:100%;
+        input{
+            width:100%;
+        }
     }
+    .controllers{
+        width:50%;
+    }
+    
 }

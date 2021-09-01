@@ -44,31 +44,49 @@ export default function Player(props){
         audioRef.current.currentTime=e.target.value;
 
     }
-    function SetDirection(direction){
+    async function SetDirection(direction){
         let currentIndex=props.songs.findIndex((song)=>song.id===props.currentSong.id);
         if(props.flag===false){
             props.setFlag(true);
         }
         // let currentIndex=props.songs.indexOf(props.currentSong);
         if(direction==="skip-forward"){
-            props.setCurrentSong(props.songs[(currentIndex+1)%props.songs.length]);
+          await props.setCurrentSong(props.songs[(currentIndex+1)%props.songs.length]);
+          audioRef.current.play();
+          props.setFlag(false);
         }
         if(direction==="skip-backward"){
             if(currentIndex===0){
-                props.setCurrentSong(props.songs[props.songs.length-1]);
+               await props.setCurrentSong(props.songs[props.songs.length-1]);
+               audioRef.current.play();
+               props.setFlag(false);
             }
             else{
-            props.setCurrentSong(props.songs[(currentIndex-1)%props.songs.length]);
+             await props.setCurrentSong(props.songs[(currentIndex-1)%props.songs.length]);
+             audioRef.current.play();
+             props.setFlag(false);
             }
         }
         
+    }
+   async function autoSkip(){
+        // if(props.flag===false){
+        //     props.setFlag(true);
+        //     audioRef.current.play();
+        // }
+        let currentIndex=props.songs.findIndex((song)=>song.id===props.currentSong.id);
+        await props.setCurrentSong(props.songs[(currentIndex+1)%props.songs.length]);
+        audioRef.current.play();
     }
 
     return(  
         <div className="player">
             <div className="time-control">
                 <h4>{setCTime(songInfo.currentTime)}</h4>
+                <div className="input-track">
                 <input type="range" onChange={setInput} value={songInfo.currentTime} min="0" max={songInfo.duration} />
+                <div className="upper-track"></div>
+                </div>
                 <h4>{setCTime(songInfo.duration)}</h4>
                 <p>{songInfo.duration==null ? songInfo.duration="0:00":""}</p>
             </div>
@@ -77,7 +95,7 @@ export default function Player(props){
             <FontAwesomeIcon onClick={audioHandler}  size="2x" icon={ props.flag ? faPlay:faPause}/>
             <FontAwesomeIcon size="2x" onClick={()=>SetDirection("skip-forward")} icon={faForward}/>
             </div>
-            <audio onTimeUpdate={getTime} onLoadedMetadata={getTime} ref={audioRef} src={props.currentSong.audio}></audio>
+            <audio onTimeUpdate={getTime} onEnded={autoSkip} onLoadedMetadata={getTime} ref={audioRef} src={props.currentSong.audio}></audio>
             <Library libraryCheck={props.libraryCheck} setSong={props.setSong} flag={props.flag} audioRef={audioRef} setCurrentSong={props.setCurrentSong} currentSong={props.currentSong} setFlag={props.setFlag} songs={props.songs}/>
         </div>
     );
