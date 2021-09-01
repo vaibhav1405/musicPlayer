@@ -24,6 +24,7 @@
     align-items: center;
     justify-content:flex-start;
     cursor: pointer;
+    transition: background 0.4s ease;
     img{
         padding: 0.4rem;
         max-width: 140px;

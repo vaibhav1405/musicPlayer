@@ -21,12 +21,13 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className={`App`}>
       <Loading loadContent={loadContent} setLoadContent={setLoadContent}/>
       <Nav libraryCheck={libraryCheck} setLibraryCheck={setLibraryCheck} />
+      <div className={`${libraryCheck ? "app-active":"app-no-active"}`}>
      <Song currentSong={currentSong}/>
      <Player libraryCheck={libraryCheck} setCurrentSong={setCurrentSong} setSong={setSong} setFlag={setFlag} flag={flag} currentSong={currentSong} songs={song} />
-
+    </div>
     </div>
   );
 }
