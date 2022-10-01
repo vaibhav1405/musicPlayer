@@ -1,7 +1,7 @@
 import React,{useEffect, useRef,useState} from "react";
 import Library from "./library";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay,faBackward, faForward, faPause } from "@fortawesome/free-solid-svg-icons";
+import { faPlay,faBackward, faForward, faPause,faVolumeDown , faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 export default function Player(props){
 
 
@@ -78,7 +78,9 @@ export default function Player(props){
         await props.setCurrentSong(props.songs[(currentIndex+1)%props.songs.length]);
         audioRef.current.play();
     }
-
+    const handleVolume = (e)=>{
+        audioRef.current.volume= e.target.value/100;
+    }
     return(  
         <div className="player">
             <div className="time-control">
@@ -89,6 +91,11 @@ export default function Player(props){
                 </div>
                 <h4>{setCTime(songInfo.duration)}</h4>
                 <p>{songInfo.duration==null ? songInfo.duration="0:00":""}</p>
+            </div>
+            <div className="controllers">
+            <FontAwesomeIcon size="2x" icon={faVolumeDown}/>
+            <input type="range" onChange = {handleVolume} defaultValue={50} className="volume-handler"/>
+            <FontAwesomeIcon size="2x" icon={faVolumeUp}/>
             </div>
             <div className="controllers">
             <FontAwesomeIcon size="2x" onClick={()=>SetDirection("skip-backward")} icon={faBackward}/>
