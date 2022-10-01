@@ -1,5 +1,6 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.css';
+import "../styles/footer.css"
 
 function Footer() {
   return (
@@ -9,7 +10,7 @@ function Footer() {
                 <div className="container p-4 pb-0">
                     <div className="text-center">
                         <div className="col-12">
-                            <h3>Portfolio Webiste</h3>
+                            <h3>Music App</h3>
                             <br/>
                         </div>
                         <div className="col-12">
