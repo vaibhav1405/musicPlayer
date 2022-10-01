@@ -28,6 +28,7 @@ function App() {
      <Song currentSong={currentSong}/>
      <Player libraryCheck={libraryCheck} setCurrentSong={setCurrentSong} setSong={setSong} setFlag={setFlag} flag={flag} currentSong={currentSong} songs={song} />
      <Player libraryCheck={libraryCheck} setCurrentSong={setCurrentSong} setSong={setSong} setFlag={setFlag} flag={flag} currentSong={currentSong} songs={song} />
+     <Footer/>
     </div>
     </div>
   );
