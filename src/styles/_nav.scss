@@ -1,4 +1,4 @@
-.nav{
+.nav {
     display: flex;
     align-items: center;
     height: 12vh;
@@ -7,22 +7,25 @@
     background-color: rgb(221, 164, 164);
     border-radius: 0 0 0 2rem;
     box-shadow: 2px 2px 40px rgb(223, 201, 201);
-    .nav-burger{
-        border: 1px solid rgb(223, 130, 130);
+
+    .nav-burger {
+        border: 1px solid rgb(246, 130, 130);
         padding: 0.4rem;
         font-size: 40px;
-        width: 50px;
-        height: 50px;
+        width: 55px;
+        height: 55px;
         border-radius: 50%;
         cursor: pointer;
     }
-    button{
+
+    button {
         border: none;
-        background-color:rgb(214, 117, 117) ;
+        background-color: rgb(204, 117, 117);
         border-radius: 50%;
         color: white;
         transition: 0.4s ease;
-        &:hover{
+
+        &:hover {
             color: rgb(226, 134, 134);
             background: white;
         }
