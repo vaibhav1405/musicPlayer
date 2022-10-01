@@ -8,7 +8,7 @@ function Footer() {
         <footer>
             <div className="footer bg-dark text-center text-white">
                 <div className="container p-4 pb-0">
-                    <div className="text-center">
+                    <div className="text-center header">
                         <div className="col-12">
                             <h3>Music App</h3>
                             <br/>
