@@ -6,9 +6,9 @@ import data from "./utils.song/songInfo";
 import Nav from "./components/nav";
 import Loading from './components/loading';
 function App() {
-
+  const randomIndex = Math.floor(Math.random() * data().length - 1);
   const [song,setSong]=useState(data());
-  const [currentSong,setCurrentSong]=useState(song[4]);
+  const [currentSong,setCurrentSong]=useState(song[randomIndex]);
   const [flag,setFlag]=useState(true);
   const [libraryCheck,setLibraryCheck]=useState(false);
   const [loadContent,setLoadContent]=useState(true);
