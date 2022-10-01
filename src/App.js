@@ -6,9 +6,9 @@ import data from "./utils.song/songInfo";
 import Nav from "./components/nav";
 import Loading from './components/loading';
 function App() {
-
+  const randomIndex = Math.floor(Math.random() * data().length - 1);
   const [song,setSong]=useState(data());
-  const [currentSong,setCurrentSong]=useState(song[4]);
+  const [currentSong,setCurrentSong]=useState(song[randomIndex]);
   const [flag,setFlag]=useState(true);
   const [libraryCheck,setLibraryCheck]=useState(false);
   const [loadContent,setLoadContent]=useState(true);
@@ -27,6 +27,7 @@ function App() {
       <Nav libraryCheck={libraryCheck} setLibraryCheck={setLibraryCheck} setTheme={setTheme} theme={theme}/>
       <div className={`${libraryCheck ? "app-active":"app-no-active"}`}>
      <Song currentSong={currentSong}/>
+     <Player libraryCheck={libraryCheck} setCurrentSong={setCurrentSong} setSong={setSong} setFlag={setFlag} flag={flag} currentSong={currentSong} songs={song} />
      <Player libraryCheck={libraryCheck} setCurrentSong={setCurrentSong} setSong={setSong} setFlag={setFlag} flag={flag} currentSong={currentSong} songs={song} />
     </div>
     </div>
